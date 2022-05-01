@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <div class="nav">
+        <div class="logo">
+            <h1>Masai E-Comm</h1>
+        </div>
+        <div class="text">
+            <h2> <a href="products.html">Men </a>   </h2>
+            <h2> <a href="products.html"> Women </a></h2>
+            <h2> <a href="products.html"> Kids </a></h2>
+            
+        </div>
+        <div class="user">
+            <h2> <a href="signup.html">Sign up</a></h2>
+            <h2> <a href="signin.html"> Sign in</a></h2>
+        </div>
+    </div>
+    <form>
+        
+        <input id="email" type="text" placeholder="email">
+        <input id="password" type="password" placeholder="password">
+        <input type="submit" value="signin">
+    </form>
+    
+</body>
+</html>
+<script>
+    var form=document.querySelector("form");
+    var userData=JSON.parse(localStorage.getItem("userData"));
+
+    form.addEventListener("submit", function(event){ 
+        event.preventDefault();
+        var data={
+            email:form.email.value,
+            password:form.password.value,
+        }
+        if (userData === null){
+            alert("create account first");
+        }else if(userData.email==data.email && userData.password==data.password){
+                alert("signin sucessfull");
+                localStorage.setItem("signin",JSON.stringify(userData))
+              window.location.href="index.html"
+            }else{
+                alert("user doesnt exist");
+         }
+    })
+</script>

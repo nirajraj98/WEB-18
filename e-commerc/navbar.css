@@ -1,0 +1,44 @@
+*{
+    margin:0px;
+    padding:0px;
+
+}
+body{
+    background-color: grey;
+}
+.nav{
+    display:flex;
+    height:80px;
+    width:100%;
+    background-color: white;
+    text-align: center;
+    border:1px solid red;
+}
+.logo{
+    
+    
+    width:20%;
+    border:1px solid red;
+    
+
+}
+.text{
+    display:flex;
+    width:50%;
+    border:1px solid green;
+    
+    justify-content: space-between;
+
+}
+.user{
+    display:flex;
+    width:30%;
+    border:1px solid blue;
+    
+}
+.user>h2{
+    margin-left: 80px;
+}
+a{
+    text-decoration: none;
+}

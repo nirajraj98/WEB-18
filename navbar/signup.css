@@ -1,0 +1,16 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+fprm{
+    width:50px;
+    margin:auto;
+}
+input{
+    display:grid;
+    margin:auto;
+    font-size: 20px;
+    
+
+
+}
