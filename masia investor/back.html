@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <style>
+    #container {
+      width: 30%;
+      margin: auto;
+      margin-bottom: 50px;
+      /* border: 1px solid red; */
+      box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px,
+        rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px,
+        rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px,
+        rgba(0, 0, 0, 0.07) 0px 32px 64px;
+    }
+    #info {
+      padding-top: 20px;
+      font-size: 24px;
+      margin-left: 30px;
+    }
+
+    #info > input {
+      margin-bottom: 20px;
+      height: 20px;
+    }
+
+    #info :last-child {
+      border-radius: 5px;
+      border: 0px;
+      font-size: 20px;
+      height: 30px;
+      background-color: black;
+      color: white;
+    }
+
+    #info :last-child:hover {
+      cursor: pointer;
+      background-color: orangered;
+    }
+
+    #next {
+      background-color: blue;
+      font-size: 30px;
+      margin: auto;
+      width: 30%;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      margin-bottom: 20px;
+    }
+  </style>
+  <body>
+    <h1>Backend</h1>
+    <div id="container">
+      <form id="info">
+        <label>Name :</label>
+        <input type="text" placeholder="name" id="name" />
+        <br />
+        <label>ImgURL :</label>
+        <input type="text" placeholder="ImgURL" id="image" />
+        <br />
+        <label>Company Logo :</label>
+        <input type="text" placeholder="Company Logo" id="logo" />
+        <br />
+        <label>Role :</label>
+        <input type="text" placeholder="Role" id="role" />
+        <br />
+        <input type="submit" />
+      </form>
+    </div>
+    <div id="next">
+      <div><a href="navbar.html">Navigation Bar</a></div>
+      <div><a href="frontend.html">Frontend</a></div>
+    </div>
+  </body>
+</html>
+
+<script>
+  document.querySelector("#info").addEventListener("submit", myFunction);
+  var dataArr = JSON.parse(localStorage.getItem("investorsInfo")) || [];
+  function myFunction() {
+    event.preventDefault();
+    var data = {};
+    var info = document.querySelector("#info");
+    for (var i = 0; i < info.length - 1; i++) {
+      data[info[i].id] = info[i].value;
+    }
+    dataArr.push(data);
+    localStorage.setItem("investorsInfo", JSON.stringify(dataArr));
+  }
+</script>

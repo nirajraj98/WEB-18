@@ -7,10 +7,12 @@
     <title>Document</title>
 </head>
 <body>
+    <div id="products"></div>
     
 </body>
 </html>
 <script>
+    var cartLSdata=JSON.parse(localStorage.getItem("masai-cart") ) ||[];
     function display(data){
     products.innerHTML=null;
     data.forEach(function(element){
@@ -29,15 +31,31 @@
         price.innerText=element.price;
 
         var button=document.createElement("button");
-        button.innerText="Add To cart"
-        button.addEventListener("click",function(element){
-         AddToCart(element);
-        })
-
-        card.append(img,title,desc,price,button);
-
-        products.append(card);
+        button.innerText="Delete"
+        var remove = document.createElement("button");
+            remove.innerText = 'Remove';
+            remove.addEventListener('click', function (){
+                  Remove(el,i)
     });
+
+// display(cartLSData);
+// function Delete(){
+//     cartLSData=cartLSData.filter(function(element){
+//         return element.productID !=id;
+//     })
+//     display(cartLSData)
+//     localStorage.setItem("masai-cart",JSON.stringify(cartLSData));
+
+// }
+function Remove(el,i){
+      cart.splice(i,1);
+      tc--;
+      ttp-= +el.price;
+      localStorage.setItem('ttp',ttp);
+      localStorage.setItem('itCount',tc)
+      localStorage.setItem('masai-cart',JSON.stringify(cartLSData));
+      window.location.reload();
 }
-display(productData);
+
+
 </script>

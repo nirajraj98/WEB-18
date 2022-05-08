@@ -22,11 +22,12 @@ select{
     grid-template-columns: repeat(4,1fr);
     margin:auto;
     gap:25px;
-    width:80%;
+    width:100%;
     
 }
 #product>div{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    
 }
 #product :nth-child(3)>img{
    border:1px solid black; 

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    a {
+      font-size: 40px;
+      text-decoration: none;
+      color: white;
+    }
+    #navebar {
+      background-color: blue;
+      display: flex;
+      justify-content: space-around;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      margin-top: 40px;
+    }
+
+    #container {
+      display: grid;
+      width: 85%;
+      margin: auto;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+
+    #container > div {
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      border-radius: 15px;
+      text-align: center;
+    }
+
+    #container > div :first-child{
+      /* border: 1px solid black; */
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+
+    #container > div :nth-child(2){
+      margin-top: 0px;
+      font-weight: bold;
+      font-size: 24px
+    }
+    #container > div :nth-child(3){
+      margin-top: -15px;
+      color: gray;
+      margin-bottom: 0px;
+      font-size: 18px
+    }
+    #container > div :last-child {
+      width: 45%;
+    }
+  </style>
+  <body>
+    <h1>Frontend</h1>
+    <div id="navebar">
+      <div><a href="navbar.html">Navigation Bar</a></div>
+      <div><a href="backend.html">Backend</a></div>
+    </div>
+    <h1>Masai Investors</h1>
+    <div id="container"></div>
+  </body>
+</html>
+
+<script>
+  var dataArr = JSON.parse(localStorage.getItem("investorsInfo"));
+  console.log(dataArr);
+  dataArr.forEach(function (el) {
+    var div = document.createElement("div");
+    var image = document.createElement("img");
+    image.setAttribute("src", el.image);
+    var name = document.createElement("p");
+    name.innerText = el.name;
+    var role = document.createElement("p");
+    role.innerText = el.role;
+    var logo = document.createElement("img");
+    logo.setAttribute("src", el.logo);
+    console.log(image);
+    div.append(image, name, role, logo);
+    document.querySelector("#container").append(div);
+  });
+</script>
